@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Flags Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.2em;
+        }
+
+        .flags-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .flag-container {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .flag-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .flag {
+            width: 280px;
+            height: 187px;
+            margin: 0 auto 15px;
+            border: 3px solid #34495e;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .country-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .country-info {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        /* Colombia */
+        .colombia {
+            display: flex;
+            flex-direction: column;
+        }
+        .colombia .yellow { background: #FFCD00; flex: 2; }
+        .colombia .blue { background: #003893; flex: 1; }
+        .colombia .red { background: #CE1126; flex: 1; }
+
+        /* Estados Unidos */
+        .usa {
+            background: #B22234;
+            display: flex;
+            flex-direction: column;
+        }
+        .usa .stripes {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .usa .stripe {
+            flex: 1;
+        }
+        .usa .red { background: #B22234; }
+        .usa .white { background: #FFFFFF; }
+        .usa .blue-canton {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 53.8%;
+            background: #3C3B6E;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        .usa .star {
+            color: white;
+            font-size: 8px;
+            margin: 1px;
+        }
+
+        /* Brasil */
+        .brazil {
+            background: #009739;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .brazil .diamond {
+            width: 70%;
+            height: 70%;
+            background: #FEDD00;
+            transform: rotate(45deg);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .brazil .circle {
+            width: 50%;
+            height: 50%;
+            background: #012169;
+            border-radius: 50%;
+            transform: rotate(-45deg);
+        }
+
+        /* Argentina */
+        .argentina {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .argentina .light-blue { background: #75AADB; flex: 1; }
+        .argentina .white { background: #FFFFFF; flex: 1; }
+        .argentina .sun {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: #F6B40E;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8B4513;
+            font-size: 20px;
+        }
+
+        /* México */
+        .mexico {
+            display: flex;
+        }
+        .mexico .green { background: #006341; flex: 1; }
+        .mexico .white { background: #FFFFFF; flex: 1; position: relative; }
+        .mexico .red { background: #CE1126; flex: 1; }
+        .mexico .eagle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #8B4513;
+            font-size: 24px;
+        }
+
+        /* España */
+        .spain {
+            display: flex;
+            flex-direction: column;
+        }
+        .spain .red { background: #C60B1E; flex: 1; }
+        .spain .yellow { background: #FFC400; flex: 2; }
+
+        /* Francia */
+        .france {
+            display: flex;
+        }
+        .france .blue { background: #002395; flex: 1; }
+        .france .white { background: #FFFFFF; flex: 1; }
+        .france .red { background: #ED2939; flex: 1; }
+
+        /* Alemania */
+        .germany {
+            display: flex;
+            flex-direction: column;
+        }
+        .germany .black { background: #000000; flex: 1; }
+        .germany .red { background: #DE0000; flex: 1; }
+        .germany .yellow { background: #FFCE00; flex: 1; }
+
+        /* Italia */
+        .italy {
+            display: flex;
+        }
+        .italy .green { background: #009246; flex: 1; }
+        .italy .white { background: #FFFFFF; flex: 1; }
+        .italy .red { background: #CE2B37; flex: 1; }
+
+        /* Reino Unido */
+        .uk {
+            background: #012169;
+            position: relative;
+        }
+        .uk .diagonal1, .uk .diagonal2 {
+            position: absolute;
+            width: 100%;
+            height: 15px;
+            background: #FFFFFF;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .uk .vertical {
+            position: absolute;
+            width: 15px;
+            height: 100%;
+            background: #FFFFFF;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .uk .cross-red-h {
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            background: #C8102E;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .uk .cross-red-v {
+            position: absolute;
+            width: 8px;
+            height: 100%;
+            background: #C8102E;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Japón */
+        .japan {
+            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .japan .circle {
+            width: 80px;
+            height: 80px;
+            background: #BC002D;
+            border-radius: 50%;
+        }
+
+        /* Canadá */
+        .canada {
+            display: flex;
+            position: relative;
+        }
+        .canada .red { background: #FF0000; flex: 1; }
+        .canada .white { background: #FFFFFF; flex: 2; }
+        .canada .maple-leaf {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #FF0000;
+            font-size: 40px;
+        }
+
+        /* Australia */
+        .australia {
+            background: #012169;
+            position: relative;
+        }
+        .australia .union-jack {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 45%;
+            height: 50%;
+            background: #012169;
+        }
+        .australia .star {
+            color: white;
+            position: absolute;
+            font-size: 12px;
+        }
+        .australia .star.large {
+            bottom: 20px;
+            left: 20px;
+            font-size: 20px;
+        }
+
+        /* India */
+        .india {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .india .saffron { background: #FF9933; flex: 1; }
+        .india .white { background: #FFFFFF; flex: 1; }
+        .india .green { background: #138808; flex: 1; }
+        .india .wheel {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            border: 2px solid #000080;
+            border-radius: 50%;
+        }
+
+        /* China */
+        .china {
+            background: #DE2910;
+            position: relative;
+        }
+        .china .star {
+            color: #FFDE00;
+            position: absolute;
+            font-size: 16px;
+        }
+        .china .star.large {
+            top: 15px;
+            left: 20px;
+            font-size: 24px;
+        }
+        .china .star.small {
+            font-size: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #34495e;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .github-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .github-link:hover {
+            background: #1a252f;
+        }
+
+        @media (max-width: 768px) {
+            .flag {
+                width: 250px;
+                height: 167px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .flags-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌍 World Flags Collection</h1>
+            <p>Banderas del mundo creadas con CSS puro</p>
+        </div>
+
+        <div class="flags-grid">
+            <div class="flag-container">
+                <div class="flag colombia">
+                    <div class="yellow"></div>
+                    <div class="blue"></div>
+                    <div class="red"></div>
+                </div>
+                <div class="country-name">Colombia</div>
+                <div class="country-info">América del Sur</div>
+            </div>
+
+            <div class="flag-container">
+                <div class="flag usa">
+                    <div class="blue-canton">
+                        <div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div>
+                        <div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div>
+                        <div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div>
+                        <div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div>
+                        <div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div>
+                        <div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div>
+                        <div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div>
+                        <div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div>
+                        <div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div>
+                    </div>
+                    <div class="stripes">
+                        <div class="stripe red"></div>
+                        <div class="stripe white"></div>
+                        <div class="stripe red"></div>
+                        <div class="stripe white"></div>
+                        <div class="stripe red"></div>
+                        <div class="stripe white"></div>
+                        <div class="stripe red"></div>
+                        <div class="stripe white"></div>
+                        <div class="stripe red"></div>
+                        <div class="stripe white"></div>
+                        <div class="stripe red"></div>
+                        <div class="stripe white"></div>
+                        <div class="stripe red"></div>
+                    </div>
+                </div>
+                <div class="country-name">Estados Unidos</div>
+                <div class="country-info">América del Norte</div>
+            </div>
+
+            <div class="flag-container">
+                <div class="flag brazil">
+                    <div class="diamond">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="country-name">Brasil</div>
+                <div class="country-info">América del Sur</div>
+            </div>
+
+            <div class="flag-container">
+                <div class="flag argentina">
+                    <div class="light-blue"></div>
+                    <div class="white"></div>
+                    <div class="light-blue"></div>
+                    <div class="sun">☀</div>
+                </div>
+                <div class="country-name">Argentina</div>
+                <div class="country-info">América del Sur</div>
+            </div>
+
+            <div class="flag-container">
+                <div class="flag mexico">
+                    <div class="green"></div>
+                    <div class="white">
+                        <div class="eagle">🦅</div>
+                    </div>
+                    <div class="red"></div>
+                </div>
+                <div class="country-name">México</div>
+                <div class="country-info">América del Norte</div>
+            </div>
+
+            <div class="flag-container">
+                <div class="flag spain">
+                    <div class="red"></div>
+                    <div class="yellow"></div>
+                    <div class="red"></div>
+                </div>
+                <div class="country-name">España</div>
+                <div class="country-info">Europa</div>
+            </div>
+
+            <div class="flag-container">
+                <div class="flag france">
+                    <div class="blue"></div>
+                    <div class="white"></div>
+                    <div class="red"></div>
+                </div>
+                <div class="country-name">Francia</div>
+                <div class="country-info">Europa</div>
+            </div>
+
+            <div class="flag-container">
+                <div class="flag germany">
+                    <div class="black"></div>
+                    <div class="red"></div>
+                    <div class="yellow"></div>
+                </div>
+                <div class="country-name">Alemania</div>
+                <div class="country-info">Europa</div>
+            </div>
+
+            <div class="flag-container">
+                <div class="flag italy">
+                    <div class="green"></div>
+                    <div class="white"></div>
+                    <div class="red"></div>
+                </div>
+                <div class="country-name">Italia</div>
+                <div class="country-info">Europa</div>
+            </div>
+
+            <div class="flag-container">
+                <div class="flag uk">
+                    <div class="diagonal1"></div>
+                    <div class="vertical"></div>
+                    <div class="cross-red-h"></div>
+                    <div class="cross-red-v"></div>
+                </div>
+                <div class="country-name">Reino Unido</div>
+                <div class="country-info">Europa</div>
+            </div>
+
+            <div class="flag-container">
+                <div class="flag japan">
+                    <div class="circle"></div>
+                </div>
+                <div class="country-name">Japón</div>
+                <div class="country-info">Asia</div>
+            </div>
+
+            <div class="flag-container">
+                <div class="flag canada">
+                    <div class="red"></div>
+                    <div class="white">
+                        <div class="maple-leaf">🍁</div>
+                    </div>
+                    <div class="red"></div>
+                </div>
+                <div class="country-name">Canadá</div>
+                <div class="country-info">América del Norte</div>
+            </div>
+
+            <div class="flag-container">
+                <div class="flag australia">
+                    <div class="union-jack"></div>
+                    <div class="star large">★</div>
+                    <div class="star" style="right: 60px; top: 30px;">★</div>
+                    <div class="star" style="right: 40px; top: 60px;">★</div>
+                    <div class="star" style="right: 80px; bottom: 40px;">★</div>
+                    <div class="star" style="right: 20px; bottom: 20px;">★</div>
+                </div>
+                <div class="country-name">Australia</div>
+                <div class="country-info">Oceanía</div>
+            </div>
+
+            <div class="flag-container">
+                <div class="flag india">
+                    <div class="saffron"></div>
+                    <div class="white"></div>
+                    <div class="green"></div>
+                    <div class="wheel"></div>
+                </div>
+                <div class="country-name">India</div>
+                <div class="country-info">Asia</div>
+            </div>
+
+            <div class="flag-container">
+                <div class="flag china">
+                    <div class="star large">★</div>
+                    <div class="star small" style="top: 10px; left: 60px;">★</div>
+                    <div class="star small" style="top: 25px; left: 70px;">★</div>
+                    <div class="star small" style="top: 40px; left: 65px;">★</div>
+                    <div class="star small" style="top: 55px; left: 50px;">★</div>
+                </div>
+                <div class="country-name">China</div>
+                <div class="country-info">Asia</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h3>World Flags Repository</h3>
+            <p>Creado con ❤️ usando HTML y CSS puro</p>
+            <p>Sin imágenes externas • Totalmente responsivo • Código abierto</p>
+            <a href="https://github.com/PepeGamboa/world-flags" class="github-link">
+                Ver en GitHub
+            </a>
+        </div>
+    </div>
+</body>
+</html>
