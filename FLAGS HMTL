@@ -468,11 +468,16 @@
             </div>
         </div>
 
-        <div class="footer">
-            <h3>🌍 World Flags - CSS Implementation</h3>
-            <p>Todas las banderas creadas con CSS puro, sin uso de imágenes externas</p>
-            <p><strong>Made with ❤️ by PepeGamboa</strong></p>
-        </div>
-    </div>
-</body>
-</html>
+  <div class="footer">
+    <h3>🌍 World Flags - CSS Implementation</h3>
+    <p>Todas las banderas creadas con CSS puro, sin uso de imágenes externas</p>
+    <p>
+        <a href="https://github.com/PepeGamboa/FLAGS"
+           target="_blank"
+           style="color:#fff; background:#764ba2; padding:8px 18px; border-radius:8px; text-decoration:none; font-weight:bold;">
+            ⭐ Ver este repositorio en GitHub
+        </a>
+    </p>
+    <p><strong>Made with ❤️ by PepeGamboa</strong></p>
+</div>
+
