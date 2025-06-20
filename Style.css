@@ -1,16 +1,10 @@
-/* ==========================================================================
-   World Flags - Main Stylesheet
-   ========================================================================== */
+/* =============================================================================
+   World Flags Repository - CSS Styles
+   Autor: PepeGamboa
+   Descripción: Estilos CSS para banderas del mundo implementadas sin imágenes
+   ============================================================================= */
 
-:root {
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    --card-shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.2);
-    --border-radius: 15px;
-    --transition: all 0.3s ease;
-}
-
-/* Base Styles */
+/* Reset y configuración base */
 * {
     margin: 0;
     padding: 0;
@@ -19,44 +13,36 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     padding: 20px;
-    line-height: 1.6;
 }
 
-/* Layout Components */
+/* Contenedor principal */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: var(--card-shadow-hover);
-    backdrop-filter: blur(10px);
 }
 
+/* Header */
 .header {
     text-align: center;
+    color: white;
     margin-bottom: 40px;
-    padding: 20px 0;
 }
 
 .header h1 {
-    color: #2c3e50;
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: 2.5rem;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .header p {
-    color: #7f8c8d;
-    font-size: 1.2em;
-    font-weight: 300;
+    font-size: 1.2rem;
+    opacity: 0.9;
 }
 
-/* Grid System */
+/* Grid de banderas */
 .flags-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -64,177 +50,571 @@ body {
     margin-bottom: 40px;
 }
 
-/* Flag Container */
-.flag-container {
-    text-align: center;
-    padding: 25px;
+/* Tarjetas de banderas */
+.flag-card {
     background: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.flag-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    transition: left 0.5s;
+.flag-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 }
 
-.flag-container:hover::before {
-    left: 100%;
+.flag-title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
 }
 
-.flag-container:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: var(--card-shadow-hover);
-}
-
-/* Flag Base Styles */
+/* Estilo base para todas las banderas */
 .flag {
-    width: 280px;
-    height: 187px;
-    margin: 0 auto 20px;
-    border: 3px solid #34495e;
+    width: 100%;
+    height: 200px;
+    border: 2px solid #333;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     position: relative;
-    transition: var(--transition);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.flag:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+.stripe {
+    transition: all 0.3s ease;
 }
 
-/* Country Labels */
-.country-name {
-    font-size: 1.4em;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* =============================================================================
+   BANDERAS ESPECÍFICAS
+   ============================================================================= */
+
+/* Colombia 🇨🇴 */
+.colombia {
+    display: flex;
+    flex-direction: column;
 }
 
-.country-info {
-    color: #7f8c8d;
-    font-size: 0.95em;
-    font-weight: 400;
-    text-transform: capitalize;
+.colombia .yellow { 
+    background: #FFCD00; 
+    flex: 2; 
 }
 
-/* Footer */
+.colombia .blue { 
+    background: #003893; 
+    flex: 1; 
+}
+
+.colombia .red { 
+    background: #CE1126; 
+    flex: 1; 
+}
+
+/* Estados Unidos 🇺🇸 */
+.usa {
+    background: #B22234;
+    display: flex;
+    flex-direction: column;
+}
+
+.usa .stripes {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.usa .stripe {
+    flex: 1;
+}
+
+.usa .stripe:nth-child(odd) { 
+    background: #B22234; 
+}
+
+.usa .stripe:nth-child(even) { 
+    background: #FFFFFF; 
+}
+
+.usa .canton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 53.85%;
+    background: #3C3B6E;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2px;
+}
+
+.usa .star {
+    width: 8%;
+    height: 10%;
+    background: white;
+    margin: 1%;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* Brasil 🇧🇷 */
+.brasil {
+    background: #009739;
+    position: relative;
+}
+
+.brasil .diamond {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 70%;
+    height: 50%;
+    background: #FEDD00;
+}
+
+.brasil .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    height: 35%;
+    background: #002776;
+    border-radius: 50%;
+}
+
+/* Argentina 🇦🇷 */
+.argentina {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.argentina .celeste { 
+    background: #74ACDF; 
+    flex: 1; 
+}
+
+.argentina .white { 
+    background: #FFFFFF; 
+    flex: 1; 
+}
+
+.argentina .sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: #FCBF49;
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px #FCBF49;
+}
+
+.argentina .sun::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: radial-gradient(circle, transparent 50%, #FCBF49 50%, #FCBF49 60%, transparent 60%);
+    transform: rotate(11.25deg);
+}
+
+/* México 🇲🇽 */
+.mexico {
+    display: flex;
+}
+
+.mexico .green { 
+    background: #006847; 
+    flex: 1; 
+}
+
+.mexico .white { 
+    background: #FFFFFF; 
+    flex: 1; 
+    position: relative; 
+}
+
+.mexico .red { 
+    background: #CE1126; 
+    flex: 1; 
+}
+
+.mexico .eagle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: #8B4513;
+    border-radius: 50% 50% 0 0;
+}
+
+/* España 🇪🇸 */
+.espana {
+    display: flex;
+    flex-direction: column;
+}
+
+.espana .red { 
+    background: #C60B1E; 
+    flex: 1; 
+}
+
+.espana .yellow { 
+    background: #FFC400; 
+    flex: 2; 
+}
+
+/* Francia 🇫🇷 */
+.francia {
+    display: flex;
+}
+
+.francia .blue { 
+    background: #002395; 
+    flex: 1; 
+}
+
+.francia .white { 
+    background: #FFFFFF; 
+    flex: 1; 
+}
+
+.francia .red { 
+    background: #ED2939; 
+    flex: 1; 
+}
+
+/* Alemania 🇩🇪 */
+.alemania {
+    display: flex;
+    flex-direction: column;
+}
+
+.alemania .black { 
+    background: #000000; 
+    flex: 1; 
+}
+
+.alemania .red { 
+    background: #DD0000; 
+    flex: 1; 
+}
+
+.alemania .yellow { 
+    background: #FFCE00; 
+    flex: 1; 
+}
+
+/* Reino Unido 🇬🇧 */
+.reino-unido {
+    background: #012169;
+    position: relative;
+}
+
+.reino-unido .cross-white {
+    position: absolute;
+    top: 0;
+    left: 45%;
+    width: 10%;
+    height: 100%;
+    background: white;
+}
+
+.reino-unido .cross-white-h {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: white;
+}
+
+.reino-unido .cross-red {
+    position: absolute;
+    top: 0;
+    left: 47%;
+    width: 6%;
+    height: 100%;
+    background: #C8102E;
+}
+
+.reino-unido .cross-red-h {
+    position: absolute;
+    top: 47%;
+    left: 0;
+    width: 100%;
+    height: 6%;
+    background: #C8102E;
+}
+
+/* Japón 🇯🇵 */
+.japon {
+    background: #FFFFFF;
+    position: relative;
+}
+
+.japon .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background: #BC002D;
+    border-radius: 50%;
+}
+
+/* =============================================================================
+   BANDERAS ADICIONALES (Listas para usar)
+   ============================================================================= */
+
+/* Canadá 🇨🇦 */
+.canada {
+    display: flex;
+}
+
+.canada .red { 
+    background: #FF0000; 
+    flex: 1; 
+}
+
+.canada .white { 
+    background: #FFFFFF; 
+    flex: 2; 
+    position: relative; 
+}
+
+.canada .maple-leaf {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: #FF0000;
+    clip-path: polygon(50% 0%, 60% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 40% 35%);
+}
+
+/* Australia 🇦🇺 */
+.australia {
+    background: #012169;
+    position: relative;
+}
+
+.australia .union-jack {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    background: #012169;
+}
+
+.australia .stars {
+    position: absolute;
+    right: 20%;
+    top: 30%;
+    width: 20px;
+    height: 20px;
+    background: white;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* India 🇮🇳 */
+.india {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.india .saffron { 
+    background: #FF9933; 
+    flex: 1; 
+}
+
+.india .white { 
+    background: #FFFFFF; 
+    flex: 1; 
+}
+
+.india .green { 
+    background: #138808; 
+    flex: 1; 
+}
+
+.india .chakra {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 2px solid #000080;
+    border-radius: 50%;
+}
+
+/* China 🇨🇳 */
+.china {
+    background: #DE2910;
+    position: relative;
+}
+
+.china .star {
+    position: absolute;
+    background: #FFDE00;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.china .star-big {
+    top: 15%;
+    left: 15%;
+    width: 30px;
+    height: 30px;
+}
+
+.china .star-small {
+    width: 15px;
+    height: 15px;
+}
+
+.china .star-small:nth-child(2) { top: 10%; left: 35%; }
+.china .star-small:nth-child(3) { top: 20%; left: 40%; }
+.china .star-small:nth-child(4) { top: 30%; left: 40%; }
+.china .star-small:nth-child(5) { top: 25%; left: 30%; }
+
+/* Italia 🇮🇹 */
+.italia {
+    display: flex;
+}
+
+.italia .green { 
+    background: #009246; 
+    flex: 1; 
+}
+
+.italia .white { 
+    background: #FFFFFF; 
+    flex: 1; 
+}
+
+.italia .red { 
+    background: #CE2B37; 
+    flex: 1; 
+}
+
+/* =============================================================================
+   FOOTER Y ELEMENTOS ADICIONALES
+   ============================================================================= */
+
 .footer {
     text-align: center;
-    margin-top: 50px;
-    padding: 30px;
-    background: linear-gradient(135deg, #34495e, #2c3e50);
     color: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
 }
 
-.footer h3 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
+/* =============================================================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ============================================================================= */
 
-.footer p {
-    margin-bottom: 10px;
-    opacity: 0.9;
-}
-
-.github-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    background: linear-gradient(135deg, #2c3e50, #34495e);
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    transition: var(--transition);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 2px solid transparent;
-}
-
-.github-link:hover {
-    background: linear-gradient(135deg, #1a252f, #2c3e50);
-    transform: translateY(-2px);
-    border-color: #ffffff;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-    .container {
-        padding: 20px;
-        margin: 10px;
-    }
-    
-    .flag {
-        width: 250px;
-        height: 167px;
-    }
-    
     .flags-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
     
-    .flag-container {
-        padding: 20px;
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .flag {
+        height: 150px;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+    
+    .flag-card {
+        padding: 15px;
     }
 }
 
 @media (max-width: 480px) {
-    .flag {
-        width: 220px;
-        height: 147px;
-    }
-    
-    .container {
-        padding: 15px;
-    }
-    
     .header h1 {
-        font-size: 2em;
+        font-size: 1.5rem;
+    }
+    
+    .header p {
+        font-size: 1rem;
+    }
+    
+    .flag {
+        height: 120px;
+    }
+    
+    .flag-title {
+        font-size: 1.1rem;
     }
 }
 
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+/* =============================================================================
+   UTILIDADES Y CLASES AUXILIARES
+   ============================================================================= */
+
+.text-center {
+    text-align: center;
 }
 
-/* Print Styles */
-@media print {
-    body {
-        background: white;
-        color: black;
-    }
-    
-    .container {
-        box-shadow: none;
-        background: white;
-    }
-    
-    .flag-container:hover {
-        transform: none;
-        box-shadow: var(--card-shadow);
-    }
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.shadow {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.rounded {
+    border-radius: 8px;
+}
+
+/* Animaciones adicionales */
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+}
+
+.flag-card:hover .stripe {
+    animation: wave 0.6s ease-in-out;
+}
+
+/* Efectos especiales para banderas complejas */
+.usa .star:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+.brasil .circle:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.argentina .sun:hover {
+    transform: translate(-50%, -50%) rotate(360deg);
+    transition: transform 1s ease;
 }
