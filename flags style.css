@@ -472,6 +472,7 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Media queries modernas y válidas */
 @media (max-width: 768px) {
     .flags-grid {
         grid-template-columns: 1fr;
