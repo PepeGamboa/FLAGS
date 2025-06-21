@@ -4,436 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌍 World Flags - CSS Implementation</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .flags-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .flag-card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .flag-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
-        .flag-title {
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .flag {
-            width: 100%;
-            height: 200px;
-            border: 2px solid #333;
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        /* Colombia */
-        .colombia {
-            display: flex;
-            flex-direction: column;
-        }
-        .colombia .yellow { background: #FFCD00; flex: 2; }
-        .colombia .blue { background: #003893; flex: 1; }
-        .colombia .red { background: #CE1126; flex: 1; }
-
-        /* Estados Unidos - 50 ESTRELLAS EN PATRÓN REAL */
-        .usa {
-            background: #B22234;
-            position: relative;
-        }
-        .usa .stripes {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        .usa .stripe {
-            flex: 1;
-        }
-        .usa .stripe:nth-child(1), .usa .stripe:nth-child(3), 
-        .usa .stripe:nth-child(5), .usa .stripe:nth-child(7), 
-        .usa .stripe:nth-child(9), .usa .stripe:nth-child(11), 
-        .usa .stripe:nth-child(13) { 
-            background: #B22234; 
-        }
-        .usa .stripe:nth-child(2), .usa .stripe:nth-child(4), 
-        .usa .stripe:nth-child(6), .usa .stripe:nth-child(8), 
-        .usa .stripe:nth-child(10), .usa .stripe:nth-child(12) { 
-            background: #FFFFFF; 
-        }
-        .usa .canton {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 38%;
-            height: 53.8%;
-            background: #3C3B6E;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 8px 6px;
-            gap: 3px;
-        }
-        .usa .star-row {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            height: auto;
-            min-height: 8px;
-        }
-        .usa .star {
-            width: 8px;
-            height: 8px;
-            background: white;
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-        }
-
-        /* Brasil - CORREGIDO */
-        .brasil {
-            background: #009639;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .brasil .diamond {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 180px;
-            height: 120px;
-            background: #FEDD00;
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-        }
-        .brasil .circle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background: #002776;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .brasil .banner {
-            width: 90%;
-            height: 12px;
-            background: #FEDD00;
-            border-radius: 2px;
-            position: relative;
-        }
-        .brasil .banner::after {
-            content: 'ORDEM E PROGRESSO';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 5px;
-            font-weight: bold;
-            color: #002776;
-            white-space: nowrap;
-        }
-
-        /* Argentina - CORREGIDA (Sol en el centro) */
-        .argentina {
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-        .argentina .celeste { background: #74ACDF; flex: 1; }
-        .argentina .white { background: #FFFFFF; flex: 1; }
-        .argentina .sun {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
-            background: #FCBF49;
-            border-radius: 50%;
-            z-index: 10;
-        }
-        .argentina .sun::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: conic-gradient(
-                from 0deg, 
-                #FCBF49 0deg, transparent 11.25deg,
-                #FCBF49 22.5deg, transparent 33.75deg,
-                #FCBF49 45deg, transparent 56.25deg,
-                #FCBF49 67.5deg, transparent 78.75deg,
-                #FCBF49 90deg, transparent 101.25deg,
-                #FCBF49 112.5deg, transparent 123.75deg,
-                #FCBF49 135deg, transparent 146.25deg,
-                #FCBF49 157.5deg, transparent 168.75deg,
-                #FCBF49 180deg, transparent 191.25deg,
-                #FCBF49 202.5deg, transparent 213.75deg,
-                #FCBF49 225deg, transparent 236.25deg,
-                #FCBF49 247.5deg, transparent 258.75deg,
-                #FCBF49 270deg, transparent 281.25deg,
-                #FCBF49 292.5deg, transparent 303.75deg,
-                #FCBF49 315deg, transparent 326.25deg,
-                #FCBF49 337.5deg, transparent 348.75deg
-            );
-            border-radius: 50%;
-        }
-
-        /* México */
-        .mexico {
-            display: flex;
-        }
-        .mexico .green { background: #006847; flex: 1; }
-        .mexico .white { background: #FFFFFF; flex: 1; position: relative; }
-        .mexico .red { background: #CE1126; flex: 1; }
-        .mexico .eagle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
-            background: #8B4513;
-            border-radius: 50% 50% 20% 20%;
-        }
-
-        /* España */
-        .espana {
-            display: flex;
-            flex-direction: column;
-        }
-        .espana .red { background: #C60B1E; flex: 1; }
-        .espana .yellow { background: #FFC400; flex: 2; }
-
-        /* Francia */
-        .francia {
-            display: flex;
-        }
-        .francia .blue { background: #002395; flex: 1; }
-        .francia .white { background: #FFFFFF; flex: 1; }
-        .francia .red { background: #ED2939; flex: 1; }
-
-        /* Alemania */
-        .alemania {
-            display: flex;
-            flex-direction: column;
-        }
-        .alemania .black { background: #000000; flex: 1; }
-        .alemania .red { background: #DD0000; flex: 1; }
-        .alemania .yellow { background: #FFCE00; flex: 1; }
-
-        /* Reino Unido - CORREGIDO (Diagonales rojas en el centro) */
-        .reino-unido {
-            background: #012169;
-            position: relative;
-        }
-        /* Diagonales blancas de San Andrés */
-        .reino-unido .diagonal-white-1 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(27deg, transparent 44%, white 44%, white 56%, transparent 56%);
-        }
-        .reino-unido .diagonal-white-2 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(-27deg, transparent 44%, white 44%, white 56%, transparent 56%);
-        }
-        /* Diagonales rojas de San Patricio - CENTRADAS */
-        .reino-unido .diagonal-red-1 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(27deg, transparent 47%, #C8102E 47%, #C8102E 53%, transparent 53%);
-        }
-        .reino-unido .diagonal-red-2 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(-27deg, transparent 47%, #C8102E 47%, #C8102E 53%, transparent 53%);
-        }
-        /* Cruz blanca de San Jorge */
-        .reino-unido .cross-white {
-            position: absolute;
-            top: 0;
-            left: 46%;
-            width: 8%;
-            height: 100%;
-            background: white;
-        }
-        .reino-unido .cross-white-h {
-            position: absolute;
-            top: 46%;
-            left: 0;
-            width: 100%;
-            height: 8%;
-            background: white;
-        }
-        /* Cruz roja de San Jorge */
-        .reino-unido .cross-red {
-            position: absolute;
-            top: 0;
-            left: 47%;
-            width: 6%;
-            height: 100%;
-            background: #C8102E;
-        }
-        .reino-unido .cross-red-h {
-            position: absolute;
-            top: 47%;
-            left: 0;
-            width: 100%;
-            height: 6%;
-            background: #C8102E;
-        }
-
-        /* Japón - MEJORADO */
-        .japon {
-            background: #FFFFFF;
-            position: relative;
-        }
-        .japon .circle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 120px;
-            height: 120px;
-            background: #BC002D;
-            border-radius: 50%;
-        }
-
-        /* Italia */
-        .italia {
-            display: flex;
-        }
-        .italia .green { background: #009246; flex: 1; }
-        .italia .white { background: #FFFFFF; flex: 1; }
-        .italia .red { background: #CE2B37; flex: 1; }
-
-        /* Suiza - CRUZ SIMÉTRICA PERFECTA */
-        .suiza {
-            background: #FF0000;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .suiza .cross-white {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60%;
-            height: 12%;
-            background: white;
-        }
-        .suiza .cross-white-v {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 12%;
-            height: 60%;
-            background: white;
-        }
-
-        .footer {
-            text-align: center;
-            color: white;
-            margin-top: 40px;
-            padding: 20px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .stripe {
-            transition: all 0.3s ease;
-        }
-
-        @media (max-width: 768px) {
-            .flags-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .flag {
-                height: 150px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -443,159 +14,471 @@
         </div>
 
         <div class="flags-grid">
+            <!-- Colombia -->
             <div class="flag-card">
-                <div class="flag-title">🇨🇴 Colombia</div>
-                <div class="flag colombia">
-                    <div class="stripe yellow"></div>
-                    <div class="stripe blue"></div>
-                    <div class="stripe red"></div>
-                </div>
-            </div>
-
-            <div class="flag-card">
-                <div class="flag-title">🇺🇸 Estados Unidos</div>
-                <div class="flag usa">
-                    <div class="stripes">
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                    </div>
-                    <div class="canton">
-                        <!-- 50 estrellas en patrón oficial: filas pares 6, filas impares 5 -->
-                        <div class="star-row">
-                            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+                <div class="flag-flip-wrapper">
+                    <div class="flag-flip-inner">
+                        <div class="flag-flip-front">
+                            <div class="flag-title">🇨🇴 Colombia</div>
+                            <div class="flag colombia">
+                                <div class="stripe yellow"></div>
+                                <div class="stripe blue"></div>
+                                <div class="stripe red"></div>
+                            </div>
                         </div>
-                        <div class="star-row">
-                            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                        </div>
-                        <div class="star-row">
-                            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                        </div>
-                        <div class="star-row">
-                            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                        </div>
-                        <div class="star-row">
-                            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                        </div>
-                        <div class="star-row">
-                            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                        </div>
-                        <div class="star-row">
-                            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                        </div>
-                        <div class="star-row">
-                            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                        </div>
-                        <div class="star-row">
-                            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+                        <div class="flag-flip-back">
+                            <div class="flag-back-title">Colombia</div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Fundación:</span>
+                                <span class="flag-back-value">20 de julio, 1810</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Tamaño:</span>
+                                <span class="flag-back-value">1,141,748 km²</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Habitantes:</span>
+                                <span class="flag-back-value">~52,000,000</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Capital:</span>
+                                <span class="flag-back-value">Bogotá</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Estados Unidos -->
             <div class="flag-card">
-                <div class="flag-title">🇧🇷 Brasil</div>
-                <div class="flag brasil">
-                    <div class="diamond"></div>
-                    <div class="circle">
-                        <div class="banner"></div>
+                <div class="flag-flip-wrapper">
+                    <div class="flag-flip-inner">
+                        <div class="flag-flip-front">
+                            <div class="flag-title">🇺🇸 Estados Unidos</div>
+                            <div class="flag usa">
+                                <div class="stripes">
+                                    <div class="stripe"></div>
+                                    <div class="stripe"></div>
+                                    <div class="stripe"></div>
+                                    <div class="stripe"></div>
+                                    <div class="stripe"></div>
+                                    <div class="stripe"></div>
+                                    <div class="stripe"></div>
+                                    <div class="stripe"></div>
+                                    <div class="stripe"></div>
+                                    <div class="stripe"></div>
+                                    <div class="stripe"></div>
+                                    <div class="stripe"></div>
+                                    <div class="stripe"></div>
+                                </div>
+                                <div class="canton">
+                                    <!-- 50 estrellas en patrón oficial: filas pares 6, filas impares 5 -->
+                                    <div class="star-row">
+                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+                                    </div>
+                                    <div class="star-row">
+                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+                                    </div>
+                                    <div class="star-row">
+                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+                                    </div>
+                                    <div class="star-row">
+                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+                                    </div>
+                                    <div class="star-row">
+                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+                                    </div>
+                                    <div class="star-row">
+                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+                                    </div>
+                                    <div class="star-row">
+                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+                                    </div>
+                                    <div class="star-row">
+                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+                                    </div>
+                                    <div class="star-row">
+                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flag-flip-back">
+                            <div class="flag-back-title">Estados Unidos</div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Fundación:</span>
+                                <span class="flag-back-value">4 de julio, 1776</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Tamaño:</span>
+                                <span class="flag-back-value">9,834,000 km²</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Habitantes:</span>
+                                <span class="flag-back-value">331,000,000</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Capital:</span>
+                                <span class="flag-back-value">Washington D.C.</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Brasil -->
             <div class="flag-card">
-                <div class="flag-title">🇦🇷 Argentina</div>
-                <div class="flag argentina">
-                    <div class="stripe celeste"></div>
-                    <div class="stripe white"></div>
-                    <div class="stripe celeste"></div>
-                    <div class="sun"></div>
-                </div>
-            </div>
-
-            <div class="flag-card">
-                <div class="flag-title">🇲🇽 México</div>
-                <div class="flag mexico">
-                    <div class="stripe green"></div>
-                    <div class="stripe white">
-                        <div class="eagle"></div>
+                <div class="flag-flip-wrapper">
+                    <div class="flag-flip-inner">
+                        <div class="flag-flip-front">
+                            <div class="flag-title">🇧🇷 Brasil</div>
+                            <div class="flag brasil">
+                                <div class="diamond"></div>
+                                <div class="circle">
+                                    <div class="banner"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flag-flip-back">
+                            <div class="flag-back-title">Brasil</div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Fundación:</span>
+                                <span class="flag-back-value">7 de septiembre, 1822</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Tamaño:</span>
+                                <span class="flag-back-value">8,515,767 km²</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Habitantes:</span>
+                                <span class="flag-back-value">~214,000,000</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Capital:</span>
+                                <span class="flag-back-value">Brasilia</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stripe red"></div>
                 </div>
             </div>
 
+            <!-- Argentina -->
             <div class="flag-card">
-                <div class="flag-title">🇪🇸 España</div>
-                <div class="flag espana">
-                    <div class="stripe red"></div>
-                    <div class="stripe yellow"></div>
-                    <div class="stripe red"></div>
+                <div class="flag-flip-wrapper">
+                    <div class="flag-flip-inner">
+                        <div class="flag-flip-front">
+                            <div class="flag-title">🇦🇷 Argentina</div>
+                            <div class="flag argentina">
+                                <div class="stripe celeste"></div>
+                                <div class="stripe white"></div>
+                                <div class="stripe celeste"></div>
+                                <div class="sun"></div>
+                            </div>
+                        </div>
+                        <div class="flag-flip-back">
+                            <div class="flag-back-title">Argentina</div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Fundación:</span>
+                                <span class="flag-back-value">9 de julio, 1816</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Tamaño:</span>
+                                <span class="flag-back-value">2,780,400 km²</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Habitantes:</span>
+                                <span class="flag-back-value">~46,000,000</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Capital:</span>
+                                <span class="flag-back-value">Buenos Aires</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- México -->
             <div class="flag-card">
-                <div class="flag-title">🇫🇷 Francia</div>
-                <div class="flag francia">
-                    <div class="stripe blue"></div>
-                    <div class="stripe white"></div>
-                    <div class="stripe red"></div>
+                <div class="flag-flip-wrapper">
+                    <div class="flag-flip-inner">
+                        <div class="flag-flip-front">
+                            <div class="flag-title">🇲🇽 México</div>
+                            <div class="flag mexico">
+                                <div class="stripe green"></div>
+                                <div class="stripe white">
+                                    <div class="eagle"></div>
+                                </div>
+                                <div class="stripe red"></div>
+                            </div>
+                        </div>
+                        <div class="flag-flip-back">
+                            <div class="flag-back-title">México</div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Fundación:</span>
+                                <span class="flag-back-value">16 de septiembre, 1810</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Tamaño:</span>
+                                <span class="flag-back-value">1,964,375 km²</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Habitantes:</span>
+                                <span class="flag-back-value">~126,000,000</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Capital:</span>
+                                <span class="flag-back-value">Ciudad de México</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- España -->
             <div class="flag-card">
-                <div class="flag-title">🇩🇪 Alemania</div>
-                <div class="flag alemania">
-                    <div class="stripe black"></div>
-                    <div class="stripe red"></div>
-                    <div class="stripe yellow"></div>
+                <div class="flag-flip-wrapper">
+                    <div class="flag-flip-inner">
+                        <div class="flag-flip-front">
+                            <div class="flag-title">🇪🇸 España</div>
+                            <div class="flag espana">
+                                <div class="stripe red"></div>
+                                <div class="stripe yellow"></div>
+                                <div class="stripe red"></div>
+                            </div>
+                        </div>
+                        <div class="flag-flip-back">
+                            <div class="flag-back-title">España</div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Fundación:</span>
+                                <span class="flag-back-value">12 de octubre, 1492*</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Tamaño:</span>
+                                <span class="flag-back-value">505,990 km²</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Habitantes:</span>
+                                <span class="flag-back-value">~48,000,000</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Capital:</span>
+                                <span class="flag-back-value">Madrid</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- Francia -->
             <div class="flag-card">
-                <div class="flag-title">🇬🇧 Reino Unido</div>
-                <div class="flag reino-unido">
-                    <div class="diagonal-white-1"></div>
-                    <div class="diagonal-white-2"></div>
-                    <div class="diagonal-red-1"></div>
-                    <div class="diagonal-red-2"></div>
-                    <div class="cross-white"></div>
-                    <div class="cross-white-h"></div>
-                    <div class="cross-red"></div>
-                    <div class="cross-red-h"></div>
+                <div class="flag-flip-wrapper">
+                    <div class="flag-flip-inner">
+                        <div class="flag-flip-front">
+                            <div class="flag-title">🇫🇷 Francia</div>
+                            <div class="flag francia">
+                                <div class="stripe blue"></div>
+                                <div class="stripe white"></div>
+                                <div class="stripe red"></div>
+                            </div>
+                        </div>
+                        <div class="flag-flip-back">
+                            <div class="flag-back-title">Francia</div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Fundación:</span>
+                                <span class="flag-back-value">14 de julio, 1789</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Tamaño:</span>
+                                <span class="flag-back-value">551,695 km²</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Habitantes:</span>
+                                <span class="flag-back-value">~65,000,000</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Capital:</span>
+                                <span class="flag-back-value">París</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- Alemania -->
             <div class="flag-card">
-                <div class="flag-title">🇯🇵 Japón</div>
-                <div class="flag japon">
-                    <div class="circle"></div>
+                <div class="flag-flip-wrapper">
+                    <div class="flag-flip-inner">
+                        <div class="flag-flip-front">
+                            <div class="flag-title">🇩🇪 Alemania</div>
+                            <div class="flag alemania">
+                                <div class="stripe black"></div>
+                                <div class="stripe red"></div>
+                                <div class="stripe yellow"></div>
+                            </div>
+                        </div>
+                        <div class="flag-flip-back">
+                            <div class="flag-back-title">Alemania</div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Fundación:</span>
+                                <span class="flag-back-value">3 de octubre, 1990 (Reunificación)</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Tamaño:</span>
+                                <span class="flag-back-value">357,022 km²</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Habitantes:</span>
+                                <span class="flag-back-value">~84,000,000</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Capital:</span>
+                                <span class="flag-back-value">Berlín</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- Reino Unido -->
             <div class="flag-card">
-                <div class="flag-title">🇮🇹 Italia</div>
-                <div class="flag italia">
-                    <div class="stripe green"></div>
-                    <div class="stripe white"></div>
-                    <div class="stripe red"></div>
+                <div class="flag-flip-wrapper">
+                    <div class="flag-flip-inner">
+                        <div class="flag-flip-front">
+                            <div class="flag-title">🇬🇧 Reino Unido</div>
+                            <div class="flag reino-unido">
+                                <div class="diagonal-white-1"></div>
+                                <div class="diagonal-white-2"></div>
+                                <div class="diagonal-red-1"></div>
+                                <div class="diagonal-red-2"></div>
+                                <div class="cross-white"></div>
+                                <div class="cross-white-h"></div>
+                                <div class="cross-red"></div>
+                                <div class="cross-red-h"></div>
+                            </div>
+                        </div>
+                        <div class="flag-flip-back">
+                            <div class="flag-back-title">Reino Unido</div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Fundación:</span>
+                                <span class="flag-back-value">1 de mayo, 1707</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Tamaño:</span>
+                                <span class="flag-back-value">243,610 km²</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Habitantes:</span>
+                                <span class="flag-back-value">~67,000,000</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Capital:</span>
+                                <span class="flag-back-value">Londres</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- Japón -->
             <div class="flag-card">
-                <div class="flag-title">🇨🇭 Suiza</div>
-                <div class="flag suiza">
-                    <div class="cross-white"></div>
-                    <div class="cross-white-v"></div>
+                <div class="flag-flip-wrapper">
+                    <div class="flag-flip-inner">
+                        <div class="flag-flip-front">
+                            <div class="flag-title">🇯🇵 Japón</div>
+                            <div class="flag japon">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                        <div class="flag-flip-back">
+                            <div class="flag-back-title">Japón</div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Fundación:</span>
+                                <span class="flag-back-value">11 de febrero, 660 a.C.*</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Tamaño:</span>
+                                <span class="flag-back-value">377,975 km²</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Habitantes:</span>
+                                <span class="flag-back-value">~125,000,000</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Capital:</span>
+                                <span class="flag-back-value">Tokio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Italia -->
+            <div class="flag-card">
+                <div class="flag-flip-wrapper">
+                    <div class="flag-flip-inner">
+                        <div class="flag-flip-front">
+                            <div class="flag-title">🇮🇹 Italia</div>
+                            <div class="flag italia">
+                                <div class="stripe green"></div>
+                                <div class="stripe white"></div>
+                                <div class="stripe red"></div>
+                            </div>
+                        </div>
+                        <div class="flag-flip-back">
+                            <div class="flag-back-title">Italia</div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Fundación:</span>
+                                <span class="flag-back-value">17 de marzo, 1861</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Tamaño:</span>
+                                <span class="flag-back-value">301,340 km²</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Habitantes:</span>
+                                <span class="flag-back-value">~59,000,000</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Capital:</span>
+                                <span class="flag-back-value">Roma</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suiza -->
+            <div class="flag-card">
+                <div class="flag-flip-wrapper">
+                    <div class="flag-flip-inner">
+                        <div class="flag-flip-front">
+                            <div class="flag-title">🇨🇭 Suiza</div>
+                            <div class="flag suiza">
+                                <div class="cross-white"></div>
+                                <div class="cross-white-v"></div>
+                            </div>
+                        </div>
+                        <div class="flag-flip-back">
+                            <div class="flag-back-title">Suiza</div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Fundación:</span>
+                                <span class="flag-back-value">1 de agosto, 1291</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Tamaño:</span>
+                                <span class="flag-back-value">41,285 km²</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Habitantes:</span>
+                                <span class="flag-back-value">~8,800,000</span>
+                            </div>
+                            <div class="flag-back-row">
+                                <span class="flag-back-label">Capital:</span>
+                                <span class="flag-back-value">Berna</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -606,5 +489,6 @@
             <p><strong>Made with ❤️ by PepeGamboa</strong></p>
         </div>
     </div>
+    <script src="flags-flip.js"></script>
 </body>
 </html>
