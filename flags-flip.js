@@ -1,11 +1,11 @@
-// flags-flip.js
-
+// Triple flip: bandera → datos → escritor/frase
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.flag-card').forEach(card => {
+        let face = 0; // 0 = front, 1 = back, 2 = writer
         card.addEventListener('click', function(e) {
-            // Prevent flipping if clicking on a link or button inside the card
             if (e.target.closest('a,button')) return;
-            card.classList.toggle('flipped');
+            face = (face + 1) % 3;
+            card.querySelector('.flag-flip-inner').style.transform = `rotateY(${face * 120}deg)`;
         });
     });
 });
