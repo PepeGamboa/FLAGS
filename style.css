@@ -1,16 +1,3 @@
-/* =============================================================================
-   World Flags Repository - CSS Styles
-   Autor: PepeGamboa
-   Descripción: Estilos CSS para banderas del mundo implementadas sin imágenes
-   ============================================================================= */
-
-/* Reset y configuración base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -52,146 +39,98 @@ body {
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     perspective: 1200px;
     cursor: pointer;
     position: relative;
-}
-.flag-card.flipped .flag-flip-inner {
-    transform: rotateY(180deg);
+    min-height: 260px;
 }
 
-.flag-flip-wrapper {
-    width: 100%;
-    height: 100%;
-    min-height: 200px;
-    perspective: 1200px;
-    position: relative;
-}
 .flag-flip-inner {
-    position: relative;
     width: 100%;
-    height: 100%;
-    transition: transform 0.7s cubic-bezier(.5,.2,.2,1.0);
+    height: 220px;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(.5,.2,.2,1.0);
     transform-style: preserve-3d;
 }
-.flag-flip-front, .flag-flip-back {
+
+.flag-face {
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 0; left: 0;
     backface-visibility: hidden;
     border-radius: 8px;
     background: white;
-    overflow: hidden;
+    box-sizing: border-box;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.flag-flip-front { z-index: 2; }
-.flag-flip-back {
-    transform: rotateY(180deg);
-    background: #f7f7fb;
     flex-direction: column;
-    color: #4b3b8f;
-    text-align: center;
-    padding: 18px 10px;
-    font-size: 1.07rem;
-    justify-content: center;
     align-items: center;
-    z-index: 3;
+    justify-content: center;
 }
-.flag-back-title {
+
+.flag-front  { transform: rotateY(0deg); z-index: 3;}
+.flag-back   { transform: rotateY(120deg); z-index: 2;}
+.flag-writer { transform: rotateY(240deg); z-index: 1;}
+
+.flag-title {
+    font-size: 1.2rem;
     font-weight: 700;
-    font-size: 1.18rem;
+    margin-bottom: 10px;
+}
+
+.flag-back-title, .writer-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #4b3b8f;
+}
+
+.flag-back-title { text-align: left; }
+.writer-title { font-style: italic; color: #7a7fa3; margin-bottom: 10px; }
+.writer-quote { color: #422c7a; font-size: 1.05rem; text-align: center; }
+
+.flag-back div, .flag-back strong {
+    color: #4b3b8f;
     margin-bottom: 8px;
-}
-.flag-back-row {
-    margin-bottom: 7px;
-}
-.flag-back-label {
-    color: #7a7fa3;
-    font-size: 0.97rem;
-    margin-right: 4px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-.flag-back-value {
-    color: #422c7a;
-    font-weight: 600;
+    font-size: 1rem;
 }
 
-
-/* Bandera base */
 .flag {
     width: 100%;
-    height: 200px;
+    max-width: 200px;
+    height: 120px;
     border: 2px solid #333;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
+    margin: 0 auto 10px auto;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-.stripe {
-    transition: all 0.3s ease;
 }
 
 /* Colombia */
-.colombia {
-    display: flex;
-    flex-direction: column;
-}
+.colombia { display: flex; flex-direction: column; }
 .colombia .yellow { background: #FFCD00; flex: 2; }
-.colombia .blue { background: #003893; flex: 1; }
-.colombia .red { background: #CE1126; flex: 1; }
+.colombia .blue   { background: #003893; flex: 1; }
+.colombia .red    { background: #CE1126; flex: 1; }
 
-/* Estados Unidos - 50 ESTRELLAS EN PATRÓN REAL */
-.usa {
-    background: #B22234;
-    position: relative;
-}
-.usa .stripes {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-.usa .stripe {
-    flex: 1;
-}
-.usa .stripe:nth-child(1), .usa .stripe:nth-child(3), 
-.usa .stripe:nth-child(5), .usa .stripe:nth-child(7), 
-.usa .stripe:nth-child(9), .usa .stripe:nth-child(11), 
-.usa .stripe:nth-child(13) { 
-    background: #B22234; 
-}
-.usa .stripe:nth-child(2), .usa .stripe:nth-child(4), 
-.usa .stripe:nth-child(6), .usa .stripe:nth-child(8), 
-.usa .stripe:nth-child(10), .usa .stripe:nth-child(12) { 
-    background: #FFFFFF; 
-}
+/* Estados Unidos */
+.usa { background: #B22234; position: relative; }
+.usa .stripes { width: 100%; height: 100%; display: flex; flex-direction: column; }
+.usa .stripe { flex: 1; }
+.usa .stripe:nth-child(odd) { background: #B22234; }
+.usa .stripe:nth-child(even) { background: #FFFFFF; }
 .usa .canton {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 38%;
-    height: 53.8%;
+    position: absolute; top: 0; left: 0;
+    width: 38%; height: 53.8%;
     background: #3C3B6E;
-    display: flex;
-    flex-direction: column;
+    display: flex; flex-direction: column;
     justify-content: center;
     padding: 8px 6px;
     gap: 3px;
 }
-.usa .star-row {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: auto;
-    min-height: 8px;
-}
+.usa .star-row { display: flex; justify-content: space-evenly; align-items: center; height: auto; min-height: 8px; }
 .usa .star {
-    width: 8px;
-    height: 8px;
+    width: 8px; height: 8px;
     background: white;
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
@@ -209,8 +148,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 180px;
-    height: 120px;
+    width: 120px;
+    height: 80px;
     background: #FEDD00;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
@@ -219,8 +158,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background: #002776;
     border-radius: 50%;
     display: flex;
@@ -229,7 +168,7 @@ body {
 }
 .brasil .banner {
     width: 90%;
-    height: 12px;
+    height: 9px;
     background: #FEDD00;
     border-radius: 2px;
     position: relative;
@@ -247,20 +186,14 @@ body {
 }
 
 /* Argentina */
-.argentina {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
+.argentina { display: flex; flex-direction: column; position: relative; }
 .argentina .celeste { background: #74ACDF; flex: 1; }
 .argentina .white { background: #FFFFFF; flex: 1; }
 .argentina .sun {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
+    width: 30px; height: 30px;
     background: #FCBF49;
     border-radius: 50%;
     z-index: 10;
@@ -268,10 +201,7 @@ body {
 .argentina .sun::before {
     content: '';
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
+    top: -7px; left: -7px; right: -7px; bottom: -7px;
     background: conic-gradient(
         from 0deg, 
         #FCBF49 0deg, transparent 11.25deg,
@@ -295,167 +225,94 @@ body {
 }
 
 /* México */
-.mexico {
-    display: flex;
-}
+.mexico { display: flex; }
 .mexico .green { background: #006847; flex: 1; }
 .mexico .white { background: #FFFFFF; flex: 1; position: relative; }
 .mexico .red { background: #CE1126; flex: 1; }
 .mexico .eagle {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
+    width: 18px; height: 18px;
     background: #8B4513;
     border-radius: 50% 50% 20% 20%;
 }
 
 /* España */
-.espana {
-    display: flex;
-    flex-direction: column;
-}
+.espana { display: flex; flex-direction: column; }
 .espana .red { background: #C60B1E; flex: 1; }
 .espana .yellow { background: #FFC400; flex: 2; }
 
 /* Francia */
-.francia {
-    display: flex;
-}
+.francia { display: flex; }
 .francia .blue { background: #002395; flex: 1; }
 .francia .white { background: #FFFFFF; flex: 1; }
 .francia .red { background: #ED2939; flex: 1; }
 
 /* Alemania */
-.alemania {
-    display: flex;
-    flex-direction: column;
-}
+.alemania { display: flex; flex-direction: column; }
 .alemania .black { background: #000000; flex: 1; }
 .alemania .red { background: #DD0000; flex: 1; }
 .alemania .yellow { background: #FFCE00; flex: 1; }
 
-/* Reino Unido - CORREGIDO (Diagonales rojas en el centro) */
-.reino-unido {
-    background: #012169;
-    position: relative;
-}
+/* Reino Unido */
+.reino-unido { background: #012169; position: relative; }
 .reino-unido .diagonal-white-1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(27deg, transparent 44%, white 44%, white 56%, transparent 56%);
 }
 .reino-unido .diagonal-white-2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(-27deg, transparent 44%, white 44%, white 56%, transparent 56%);
 }
 .reino-unido .diagonal-red-1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(27deg, transparent 47%, #C8102E 47%, #C8102E 53%, transparent 53%);
 }
 .reino-unido .diagonal-red-2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(-27deg, transparent 47%, #C8102E 47%, #C8102E 53%, transparent 53%);
 }
 .reino-unido .cross-white {
-    position: absolute;
-    top: 0;
-    left: 46%;
-    width: 8%;
-    height: 100%;
-    background: white;
+    position: absolute; top: 0; left: 46%; width: 8%; height: 100%; background: white;
 }
 .reino-unido .cross-white-h {
-    position: absolute;
-    top: 46%;
-    left: 0;
-    width: 100%;
-    height: 8%;
-    background: white;
+    position: absolute; top: 46%; left: 0; width: 100%; height: 8%; background: white;
 }
 .reino-unido .cross-red {
-    position: absolute;
-    top: 0;
-    left: 47%;
-    width: 6%;
-    height: 100%;
-    background: #C8102E;
+    position: absolute; top: 0; left: 47%; width: 6%; height: 100%; background: #C8102E;
 }
 .reino-unido .cross-red-h {
-    position: absolute;
-    top: 47%;
-    left: 0;
-    width: 100%;
-    height: 6%;
-    background: #C8102E;
+    position: absolute; top: 47%; left: 0; width: 100%; height: 6%; background: #C8102E;
 }
 
-/* Japón - MEJORADO */
-.japon {
-    background: #FFFFFF;
-    position: relative;
-}
+/* Japón */
+.japon { background: #FFFFFF; position: relative; }
 .japon .circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position: absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 120px;
-    height: 120px;
+    width: 60px; height: 60px;
     background: #BC002D;
     border-radius: 50%;
 }
 
 /* Italia */
-.italia {
-    display: flex;
-}
+.italia { display: flex; }
 .italia .green { background: #009246; flex: 1; }
 .italia .white { background: #FFFFFF; flex: 1; }
 .italia .red { background: #CE2B37; flex: 1; }
 
-/* Suiza - CRUZ SIMÉTRICA PERFECTA */
-.suiza {
-    background: #FF0000;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+/* Suiza */
+.suiza { background: #FF0000; position: relative; display: flex; align-items: center; justify-content: center; }
 .suiza .cross-white {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position: absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
-    height: 12%;
-    background: white;
+    width: 60%; height: 12%; background: white;
 }
 .suiza .cross-white-v {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position: absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 12%;
-    height: 60%;
-    background: white;
+    width: 12%; height: 60%; background: white;
 }
 
 .footer {
@@ -468,34 +325,9 @@ body {
     backdrop-filter: blur(10px);
 }
 
-.stripe {
-    transition: all 0.3s ease;
-}
-
 @media (max-width: 768px) {
-    .flags-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .header h1 {
-        font-size: 2rem;
-    }
-    .flag {
-        height: 150px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header h1 {
-        font-size: 1.5rem;
-    }
-    .header p {
-        font-size: 1rem;
-    }
-    .flag {
-        height: 120px;
-    }
-    .flag-title {
-        font-size: 1.1rem;
-    }
+    .flags-grid { grid-template-columns: 1fr; gap: 20px; }
+    .header h1 { font-size: 2rem; }
+    .flag { height: 90px; }
+    .flag-flip-inner { height: 160px; }
 }
