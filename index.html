@@ -3,489 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌍 World Flags - CSS Implementation</title>
+    <title>🌍 World Flags Collection</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>🌍 World Flags Collection</h1>
-            <p>Banderas del mundo - Versión Final con ajustes perfectos</p>
+            <p>Banderas del mundo - Versión Final con triple giro (datos, escritor y frase)</p>
         </div>
-
         <div class="flags-grid">
+
             <!-- Colombia -->
             <div class="flag-card">
-                <div class="flag-flip-wrapper">
-                    <div class="flag-flip-inner">
-                        <div class="flag-flip-front">
-                            <div class="flag-title">🇨🇴 Colombia</div>
-                            <div class="flag colombia">
-                                <div class="stripe yellow"></div>
-                                <div class="stripe blue"></div>
-                                <div class="stripe red"></div>
-                            </div>
+                <div class="flag-flip-inner">
+                    <!-- CARA 1: BANDERA -->
+                    <div class="flag-face flag-front">
+                        <div class="flag-title">🇨🇴 Colombia</div>
+                        <div class="flag colombia">
+                            <div class="stripe yellow"></div>
+                            <div class="stripe blue"></div>
+                            <div class="stripe red"></div>
                         </div>
-                        <div class="flag-flip-back">
-                            <div class="flag-back-title">Colombia</div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Fundación:</span>
-                                <span class="flag-back-value">20 de julio, 1810</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Tamaño:</span>
-                                <span class="flag-back-value">1,141,748 km²</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Habitantes:</span>
-                                <span class="flag-back-value">~52,000,000</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Capital:</span>
-                                <span class="flag-back-value">Bogotá</span>
-                            </div>
-                        </div>
+                    </div>
+                    <!-- CARA 2: DATOS PAÍS -->
+                    <div class="flag-face flag-back">
+                        <div class="flag-back-title">Colombia</div>
+                        <div><strong>Fundación:</strong> 20 de julio, 1810</div>
+                        <div><strong>Tamaño:</strong> 1,141,748 km²</div>
+                        <div><strong>Habitantes:</strong> ~52,000,000</div>
+                        <div><strong>Capital:</strong> Bogotá</div>
+                    </div>
+                    <!-- CARA 3: ESCRITOR -->
+                    <div class="flag-face flag-writer">
+                        <div class="writer-name">Gabriel García Márquez</div>
+                        <div class="writer-title">Novelista, periodista</div>
+                        <div class="writer-quote">“La vida no es la que uno vivió, sino la que uno recuerda y cómo la recuerda para contarla.”</div>
                     </div>
                 </div>
             </div>
 
             <!-- Estados Unidos -->
             <div class="flag-card">
-                <div class="flag-flip-wrapper">
-                    <div class="flag-flip-inner">
-                        <div class="flag-flip-front">
-                            <div class="flag-title">🇺🇸 Estados Unidos</div>
-                            <div class="flag usa">
-                                <div class="stripes">
-                                    <div class="stripe"></div>
-                                    <div class="stripe"></div>
-                                    <div class="stripe"></div>
-                                    <div class="stripe"></div>
-                                    <div class="stripe"></div>
-                                    <div class="stripe"></div>
-                                    <div class="stripe"></div>
-                                    <div class="stripe"></div>
-                                    <div class="stripe"></div>
-                                    <div class="stripe"></div>
-                                    <div class="stripe"></div>
-                                    <div class="stripe"></div>
-                                    <div class="stripe"></div>
+                <div class="flag-flip-inner">
+                    <div class="flag-face flag-front">
+                        <div class="flag-title">🇺🇸 Estados Unidos</div>
+                        <div class="flag usa">
+                            <div class="stripes">
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                                <div class="stripe"></div>
+                            </div>
+                            <div class="canton">
+                                <div class="star-row">
+                                    <div class="star"></div><div class="star"></div>
+                                    <div class="star"></div><div class="star"></div>
+                                    <div class="star"></div><div class="star"></div>
                                 </div>
-                                <div class="canton">
-                                    <!-- 50 estrellas en patrón oficial: filas pares 6, filas impares 5 -->
-                                    <div class="star-row">
-                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                                    </div>
-                                    <div class="star-row">
-                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                                    </div>
-                                    <div class="star-row">
-                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                                    </div>
-                                    <div class="star-row">
-                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                                    </div>
-                                    <div class="star-row">
-                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                                    </div>
-                                    <div class="star-row">
-                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                                    </div>
-                                    <div class="star-row">
-                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                                    </div>
-                                    <div class="star-row">
-                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                                    </div>
-                                    <div class="star-row">
-                                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-                                    </div>
+                                <div class="star-row">
+                                    <div class="star"></div><div class="star"></div>
+                                    <div class="star"></div><div class="star"></div>
+                                    <div class="star"></div>
+                                </div>
+                                <div class="star-row">
+                                    <div class="star"></div><div class="star"></div>
+                                    <div class="star"></div><div class="star"></div>
+                                    <div class="star"></div><div class="star"></div>
+                                </div>
+                                <div class="star-row">
+                                    <div class="star"></div><div class="star"></div>
+                                    <div class="star"></div><div class="star"></div>
+                                    <div class="star"></div>
+                                </div>
+                                <div class="star-row">
+                                    <div class="star"></div><div class="star"></div>
+                                    <div class="star"></div><div class="star"></div>
+                                    <div class="star"></div><div class="star"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flag-flip-back">
-                            <div class="flag-back-title">Estados Unidos</div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Fundación:</span>
-                                <span class="flag-back-value">4 de julio, 1776</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Tamaño:</span>
-                                <span class="flag-back-value">9,834,000 km²</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Habitantes:</span>
-                                <span class="flag-back-value">331,000,000</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Capital:</span>
-                                <span class="flag-back-value">Washington D.C.</span>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="flag-face flag-back">
+                        <div class="flag-back-title">Estados Unidos</div>
+                        <div><strong>Fundación:</strong> 4 de julio, 1776</div>
+                        <div><strong>Tamaño:</strong> 9,834,000 km²</div>
+                        <div><strong>Habitantes:</strong> 331,000,000</div>
+                        <div><strong>Capital:</strong> Washington D.C.</div>
+                    </div>
+                    <div class="flag-face flag-writer">
+                        <div class="writer-name">Mark Twain</div>
+                        <div class="writer-title">Escritor y humorista</div>
+                        <div class="writer-quote">“El secreto para salir adelante es comenzar.”</div>
                     </div>
                 </div>
             </div>
 
             <!-- Brasil -->
             <div class="flag-card">
-                <div class="flag-flip-wrapper">
-                    <div class="flag-flip-inner">
-                        <div class="flag-flip-front">
-                            <div class="flag-title">🇧🇷 Brasil</div>
-                            <div class="flag brasil">
-                                <div class="diamond"></div>
-                                <div class="circle">
-                                    <div class="banner"></div>
-                                </div>
+                <div class="flag-flip-inner">
+                    <div class="flag-face flag-front">
+                        <div class="flag-title">🇧🇷 Brasil</div>
+                        <div class="flag brasil">
+                            <div class="diamond"></div>
+                            <div class="circle">
+                                <div class="banner"></div>
                             </div>
                         </div>
-                        <div class="flag-flip-back">
-                            <div class="flag-back-title">Brasil</div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Fundación:</span>
-                                <span class="flag-back-value">7 de septiembre, 1822</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Tamaño:</span>
-                                <span class="flag-back-value">8,515,767 km²</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Habitantes:</span>
-                                <span class="flag-back-value">~214,000,000</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Capital:</span>
-                                <span class="flag-back-value">Brasilia</span>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="flag-face flag-back">
+                        <div class="flag-back-title">Brasil</div>
+                        <div><strong>Fundación:</strong> 7 de septiembre, 1822</div>
+                        <div><strong>Tamaño:</strong> 8,515,767 km²</div>
+                        <div><strong>Habitantes:</strong> ~214,000,000</div>
+                        <div><strong>Capital:</strong> Brasilia</div>
+                    </div>
+                    <div class="flag-face flag-writer">
+                        <div class="writer-name">Paulo Coelho</div>
+                        <div class="writer-title">Novelista</div>
+                        <div class="writer-quote">“Cuando quieres realmente una cosa, todo el universo conspira para ayudarte a conseguirla.”</div>
                     </div>
                 </div>
             </div>
 
             <!-- Argentina -->
             <div class="flag-card">
-                <div class="flag-flip-wrapper">
-                    <div class="flag-flip-inner">
-                        <div class="flag-flip-front">
-                            <div class="flag-title">🇦🇷 Argentina</div>
-                            <div class="flag argentina">
-                                <div class="stripe celeste"></div>
-                                <div class="stripe white"></div>
-                                <div class="stripe celeste"></div>
-                                <div class="sun"></div>
-                            </div>
+                <div class="flag-flip-inner">
+                    <div class="flag-face flag-front">
+                        <div class="flag-title">🇦🇷 Argentina</div>
+                        <div class="flag argentina">
+                            <div class="stripe celeste"></div>
+                            <div class="stripe white"></div>
+                            <div class="stripe celeste"></div>
+                            <div class="sun"></div>
                         </div>
-                        <div class="flag-flip-back">
-                            <div class="flag-back-title">Argentina</div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Fundación:</span>
-                                <span class="flag-back-value">9 de julio, 1816</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Tamaño:</span>
-                                <span class="flag-back-value">2,780,400 km²</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Habitantes:</span>
-                                <span class="flag-back-value">~46,000,000</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Capital:</span>
-                                <span class="flag-back-value">Buenos Aires</span>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="flag-face flag-back">
+                        <div class="flag-back-title">Argentina</div>
+                        <div><strong>Fundación:</strong> 9 de julio, 1816</div>
+                        <div><strong>Tamaño:</strong> 2,780,400 km²</div>
+                        <div><strong>Habitantes:</strong> ~46,000,000</div>
+                        <div><strong>Capital:</strong> Buenos Aires</div>
+                    </div>
+                    <div class="flag-face flag-writer">
+                        <div class="writer-name">Jorge Luis Borges</div>
+                        <div class="writer-title">Poeta y ensayista</div>
+                        <div class="writer-quote">“Siempre imaginé que el Paraíso sería algún tipo de biblioteca.”</div>
                     </div>
                 </div>
             </div>
 
             <!-- México -->
             <div class="flag-card">
-                <div class="flag-flip-wrapper">
-                    <div class="flag-flip-inner">
-                        <div class="flag-flip-front">
-                            <div class="flag-title">🇲🇽 México</div>
-                            <div class="flag mexico">
-                                <div class="stripe green"></div>
-                                <div class="stripe white">
-                                    <div class="eagle"></div>
-                                </div>
-                                <div class="stripe red"></div>
+                <div class="flag-flip-inner">
+                    <div class="flag-face flag-front">
+                        <div class="flag-title">🇲🇽 México</div>
+                        <div class="flag mexico">
+                            <div class="stripe green"></div>
+                            <div class="stripe white">
+                                <div class="eagle"></div>
                             </div>
+                            <div class="stripe red"></div>
                         </div>
-                        <div class="flag-flip-back">
-                            <div class="flag-back-title">México</div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Fundación:</span>
-                                <span class="flag-back-value">16 de septiembre, 1810</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Tamaño:</span>
-                                <span class="flag-back-value">1,964,375 km²</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Habitantes:</span>
-                                <span class="flag-back-value">~126,000,000</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Capital:</span>
-                                <span class="flag-back-value">Ciudad de México</span>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="flag-face flag-back">
+                        <div class="flag-back-title">México</div>
+                        <div><strong>Fundación:</strong> 16 de septiembre, 1810</div>
+                        <div><strong>Tamaño:</strong> 1,964,375 km²</div>
+                        <div><strong>Habitantes:</strong> ~126,000,000</div>
+                        <div><strong>Capital:</strong> Ciudad de México</div>
+                    </div>
+                    <div class="flag-face flag-writer">
+                        <div class="writer-name">Octavio Paz</div>
+                        <div class="writer-title">Poeta y ensayista</div>
+                        <div class="writer-quote">“Amar es desnudarse de los nombres.”</div>
                     </div>
                 </div>
             </div>
 
             <!-- España -->
             <div class="flag-card">
-                <div class="flag-flip-wrapper">
-                    <div class="flag-flip-inner">
-                        <div class="flag-flip-front">
-                            <div class="flag-title">🇪🇸 España</div>
-                            <div class="flag espana">
-                                <div class="stripe red"></div>
-                                <div class="stripe yellow"></div>
-                                <div class="stripe red"></div>
-                            </div>
+                <div class="flag-flip-inner">
+                    <div class="flag-face flag-front">
+                        <div class="flag-title">🇪🇸 España</div>
+                        <div class="flag espana">
+                            <div class="stripe red"></div>
+                            <div class="stripe yellow"></div>
+                            <div class="stripe red"></div>
                         </div>
-                        <div class="flag-flip-back">
-                            <div class="flag-back-title">España</div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Fundación:</span>
-                                <span class="flag-back-value">12 de octubre, 1492*</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Tamaño:</span>
-                                <span class="flag-back-value">505,990 km²</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Habitantes:</span>
-                                <span class="flag-back-value">~48,000,000</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Capital:</span>
-                                <span class="flag-back-value">Madrid</span>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="flag-face flag-back">
+                        <div class="flag-back-title">España</div>
+                        <div><strong>Fundación:</strong> 12 de octubre, 1492*</div>
+                        <div><strong>Tamaño:</strong> 505,990 km²</div>
+                        <div><strong>Habitantes:</strong> ~48,000,000</div>
+                        <div><strong>Capital:</strong> Madrid</div>
+                    </div>
+                    <div class="flag-face flag-writer">
+                        <div class="writer-name">Miguel de Cervantes</div>
+                        <div class="writer-title">Novelista, poeta y dramaturgo</div>
+                        <div class="writer-quote">“El que lee mucho y anda mucho, ve mucho y sabe mucho.”</div>
                     </div>
                 </div>
             </div>
 
             <!-- Francia -->
             <div class="flag-card">
-                <div class="flag-flip-wrapper">
-                    <div class="flag-flip-inner">
-                        <div class="flag-flip-front">
-                            <div class="flag-title">🇫🇷 Francia</div>
-                            <div class="flag francia">
-                                <div class="stripe blue"></div>
-                                <div class="stripe white"></div>
-                                <div class="stripe red"></div>
-                            </div>
+                <div class="flag-flip-inner">
+                    <div class="flag-face flag-front">
+                        <div class="flag-title">🇫🇷 Francia</div>
+                        <div class="flag francia">
+                            <div class="stripe blue"></div>
+                            <div class="stripe white"></div>
+                            <div class="stripe red"></div>
                         </div>
-                        <div class="flag-flip-back">
-                            <div class="flag-back-title">Francia</div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Fundación:</span>
-                                <span class="flag-back-value">14 de julio, 1789</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Tamaño:</span>
-                                <span class="flag-back-value">551,695 km²</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Habitantes:</span>
-                                <span class="flag-back-value">~65,000,000</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Capital:</span>
-                                <span class="flag-back-value">París</span>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="flag-face flag-back">
+                        <div class="flag-back-title">Francia</div>
+                        <div><strong>Fundación:</strong> 14 de julio, 1789</div>
+                        <div><strong>Tamaño:</strong> 551,695 km²</div>
+                        <div><strong>Habitantes:</strong> ~65,000,000</div>
+                        <div><strong>Capital:</strong> París</div>
+                    </div>
+                    <div class="flag-face flag-writer">
+                        <div class="writer-name">Victor Hugo</div>
+                        <div class="writer-title">Novelista, poeta y dramaturgo</div>
+                        <div class="writer-quote">“El futuro tiene muchos nombres. Para los débiles es lo inalcanzable. Para los temerosos, lo desconocido. Para los valientes, la oportunidad.”</div>
                     </div>
                 </div>
             </div>
 
             <!-- Alemania -->
             <div class="flag-card">
-                <div class="flag-flip-wrapper">
-                    <div class="flag-flip-inner">
-                        <div class="flag-flip-front">
-                            <div class="flag-title">🇩🇪 Alemania</div>
-                            <div class="flag alemania">
-                                <div class="stripe black"></div>
-                                <div class="stripe red"></div>
-                                <div class="stripe yellow"></div>
-                            </div>
+                <div class="flag-flip-inner">
+                    <div class="flag-face flag-front">
+                        <div class="flag-title">🇩🇪 Alemania</div>
+                        <div class="flag alemania">
+                            <div class="stripe black"></div>
+                            <div class="stripe red"></div>
+                            <div class="stripe yellow"></div>
                         </div>
-                        <div class="flag-flip-back">
-                            <div class="flag-back-title">Alemania</div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Fundación:</span>
-                                <span class="flag-back-value">3 de octubre, 1990 (Reunificación)</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Tamaño:</span>
-                                <span class="flag-back-value">357,022 km²</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Habitantes:</span>
-                                <span class="flag-back-value">~84,000,000</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Capital:</span>
-                                <span class="flag-back-value">Berlín</span>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="flag-face flag-back">
+                        <div class="flag-back-title">Alemania</div>
+                        <div><strong>Fundación:</strong> 3 de octubre, 1990 (Reunificación)</div>
+                        <div><strong>Tamaño:</strong> 357,022 km²</div>
+                        <div><strong>Habitantes:</strong> ~84,000,000</div>
+                        <div><strong>Capital:</strong> Berlín</div>
+                    </div>
+                    <div class="flag-face flag-writer">
+                        <div class="writer-name">Johann Wolfgang von Goethe</div>
+                        <div class="writer-title">Poeta y dramaturgo</div>
+                        <div class="writer-quote">“Lo que no se empieza hoy, nunca se termina mañana.”</div>
                     </div>
                 </div>
             </div>
 
             <!-- Reino Unido -->
             <div class="flag-card">
-                <div class="flag-flip-wrapper">
-                    <div class="flag-flip-inner">
-                        <div class="flag-flip-front">
-                            <div class="flag-title">🇬🇧 Reino Unido</div>
-                            <div class="flag reino-unido">
-                                <div class="diagonal-white-1"></div>
-                                <div class="diagonal-white-2"></div>
-                                <div class="diagonal-red-1"></div>
-                                <div class="diagonal-red-2"></div>
-                                <div class="cross-white"></div>
-                                <div class="cross-white-h"></div>
-                                <div class="cross-red"></div>
-                                <div class="cross-red-h"></div>
-                            </div>
+                <div class="flag-flip-inner">
+                    <div class="flag-face flag-front">
+                        <div class="flag-title">🇬🇧 Reino Unido</div>
+                        <div class="flag reino-unido">
+                            <div class="diagonal-white-1"></div>
+                            <div class="diagonal-white-2"></div>
+                            <div class="diagonal-red-1"></div>
+                            <div class="diagonal-red-2"></div>
+                            <div class="cross-white"></div>
+                            <div class="cross-white-h"></div>
+                            <div class="cross-red"></div>
+                            <div class="cross-red-h"></div>
                         </div>
-                        <div class="flag-flip-back">
-                            <div class="flag-back-title">Reino Unido</div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Fundación:</span>
-                                <span class="flag-back-value">1 de mayo, 1707</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Tamaño:</span>
-                                <span class="flag-back-value">243,610 km²</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Habitantes:</span>
-                                <span class="flag-back-value">~67,000,000</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Capital:</span>
-                                <span class="flag-back-value">Londres</span>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="flag-face flag-back">
+                        <div class="flag-back-title">Reino Unido</div>
+                        <div><strong>Fundación:</strong> 1 de mayo, 1707</div>
+                        <div><strong>Tamaño:</strong> 243,610 km²</div>
+                        <div><strong>Habitantes:</strong> ~67,000,000</div>
+                        <div><strong>Capital:</strong> Londres</div>
+                    </div>
+                    <div class="flag-face flag-writer">
+                        <div class="writer-name">William Shakespeare</div>
+                        <div class="writer-title">Dramaturgo y poeta</div>
+                        <div class="writer-quote">“Ser o no ser, esa es la cuestión.”</div>
                     </div>
                 </div>
             </div>
 
             <!-- Japón -->
             <div class="flag-card">
-                <div class="flag-flip-wrapper">
-                    <div class="flag-flip-inner">
-                        <div class="flag-flip-front">
-                            <div class="flag-title">🇯🇵 Japón</div>
-                            <div class="flag japon">
-                                <div class="circle"></div>
-                            </div>
+                <div class="flag-flip-inner">
+                    <div class="flag-face flag-front">
+                        <div class="flag-title">🇯🇵 Japón</div>
+                        <div class="flag japon">
+                            <div class="circle"></div>
                         </div>
-                        <div class="flag-flip-back">
-                            <div class="flag-back-title">Japón</div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Fundación:</span>
-                                <span class="flag-back-value">11 de febrero, 660 a.C.*</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Tamaño:</span>
-                                <span class="flag-back-value">377,975 km²</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Habitantes:</span>
-                                <span class="flag-back-value">~125,000,000</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Capital:</span>
-                                <span class="flag-back-value">Tokio</span>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="flag-face flag-back">
+                        <div class="flag-back-title">Japón</div>
+                        <div><strong>Fundación:</strong> 11 de febrero, 660 a.C.*</div>
+                        <div><strong>Tamaño:</strong> 377,975 km²</div>
+                        <div><strong>Habitantes:</strong> ~125,000,000</div>
+                        <div><strong>Capital:</strong> Tokio</div>
+                    </div>
+                    <div class="flag-face flag-writer">
+                        <div class="writer-name">Haruki Murakami</div>
+                        <div class="writer-title">Novelista</div>
+                        <div class="writer-quote">“Si solo lees los libros que todos leen, solo puedes pensar lo que todos piensan.”</div>
                     </div>
                 </div>
             </div>
 
             <!-- Italia -->
             <div class="flag-card">
-                <div class="flag-flip-wrapper">
-                    <div class="flag-flip-inner">
-                        <div class="flag-flip-front">
-                            <div class="flag-title">🇮🇹 Italia</div>
-                            <div class="flag italia">
-                                <div class="stripe green"></div>
-                                <div class="stripe white"></div>
-                                <div class="stripe red"></div>
-                            </div>
+                <div class="flag-flip-inner">
+                    <div class="flag-face flag-front">
+                        <div class="flag-title">🇮🇹 Italia</div>
+                        <div class="flag italia">
+                            <div class="stripe green"></div>
+                            <div class="stripe white"></div>
+                            <div class="stripe red"></div>
                         </div>
-                        <div class="flag-flip-back">
-                            <div class="flag-back-title">Italia</div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Fundación:</span>
-                                <span class="flag-back-value">17 de marzo, 1861</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Tamaño:</span>
-                                <span class="flag-back-value">301,340 km²</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Habitantes:</span>
-                                <span class="flag-back-value">~59,000,000</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Capital:</span>
-                                <span class="flag-back-value">Roma</span>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="flag-face flag-back">
+                        <div class="flag-back-title">Italia</div>
+                        <div><strong>Fundación:</strong> 17 de marzo, 1861</div>
+                        <div><strong>Tamaño:</strong> 301,340 km²</div>
+                        <div><strong>Habitantes:</strong> ~59,000,000</div>
+                        <div><strong>Capital:</strong> Roma</div>
+                    </div>
+                    <div class="flag-face flag-writer">
+                        <div class="writer-name">Dante Alighieri</div>
+                        <div class="writer-title">Poeta</div>
+                        <div class="writer-quote">“El amor mueve el sol y las demás estrellas.”</div>
                     </div>
                 </div>
             </div>
 
             <!-- Suiza -->
             <div class="flag-card">
-                <div class="flag-flip-wrapper">
-                    <div class="flag-flip-inner">
-                        <div class="flag-flip-front">
-                            <div class="flag-title">🇨🇭 Suiza</div>
-                            <div class="flag suiza">
-                                <div class="cross-white"></div>
-                                <div class="cross-white-v"></div>
-                            </div>
+                <div class="flag-flip-inner">
+                    <div class="flag-face flag-front">
+                        <div class="flag-title">🇨🇭 Suiza</div>
+                        <div class="flag suiza">
+                            <div class="cross-white"></div>
+                            <div class="cross-white-v"></div>
                         </div>
-                        <div class="flag-flip-back">
-                            <div class="flag-back-title">Suiza</div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Fundación:</span>
-                                <span class="flag-back-value">1 de agosto, 1291</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Tamaño:</span>
-                                <span class="flag-back-value">41,285 km²</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Habitantes:</span>
-                                <span class="flag-back-value">~8,800,000</span>
-                            </div>
-                            <div class="flag-back-row">
-                                <span class="flag-back-label">Capital:</span>
-                                <span class="flag-back-value">Berna</span>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="flag-face flag-back">
+                        <div class="flag-back-title">Suiza</div>
+                        <div><strong>Fundación:</strong> 1 de agosto, 1291</div>
+                        <div><strong>Tamaño:</strong> 41,285 km²</div>
+                        <div><strong>Habitantes:</strong> ~8,800,000</div>
+                        <div><strong>Capital:</strong> Berna</div>
+                    </div>
+                    <div class="flag-face flag-writer">
+                        <div class="writer-name">Johanna Spyri</div>
+                        <div class="writer-title">Novelista</div>
+                        <div class="writer-quote">“Heidi enseña que la felicidad está en las cosas sencillas.”</div>
                     </div>
                 </div>
             </div>
-        </div>
 
+        </div>
         <div class="footer">
-            <h3>🌍 World Flags - Versión Final Perfecta</h3>
-            <p>✅ Estados Unidos: 50 estrellas exactas | ✅ Suiza: Cruz proporcionada</p>
+            <h3>🌍 World Flags - Versión Final con triple giro</h3>
+            <p>Haz click varias veces en cada tarjeta para ver datos y escritor/frase.</p>
             <p><strong>Made with ❤️ by PepeGamboa</strong></p>
         </div>
     </div>
